@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+  <title>Shift2020</title>
+</head>
+<body>
+  <main class="pure-g">
+    <h1>Claim code</h1>
+    <form class="pure-form pure-form-aligned">
+      <fieldset>
+        <div class="pure-control-group">
+          <label for="code">Code</label>
+          <input type="text" id="code" name="code" placeholder="Code">
+        </div>
+        <div class="pure-controls">
+          <button type="submit" class="pure-button pure-button-primary">Claim</button>
+        </div>
+      </fieldset>
+    </form>
+  </main>
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const data = {
+        code: formData.get('code')
+      };
+      fetch('/api/v1/codes/claim', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+
+# Editors
+.vscode
+*.sublime-*
+.idea
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Configuration
+.env
+
+# Database
+codes.tsv
+db.sqlite
+
+# General
+.DS_Store

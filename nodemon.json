@@ -1,0 +1,15 @@
+
+{
+  "watch": [
+    "*.*",
+    ".env"
+  ],
+  "ignore": [
+    "client",
+    "dist",
+    "*.config.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
